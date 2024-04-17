@@ -10,6 +10,7 @@ st.header('Striker Analysis')
 def load_data(csv):
     df = pd.read_csv(csv)
     return df
+
 main_file=load_data('StrikerAnalysis.csv')
 
 
