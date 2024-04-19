@@ -1,5 +1,6 @@
 import altair as alt
 
+
 def scatter_plot(file,x,y,title):
      return alt.Chart(file,title=title).mark_circle().encode(
         x=x,
@@ -7,4 +8,4 @@ def scatter_plot(file,x,y,title):
         tooltip=[x,y,'Player Names']
     ).interactive()
 
-st.write("Lekha was here")
+st.write("Lekha was here!")
