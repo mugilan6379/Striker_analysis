@@ -25,4 +25,6 @@ def goalsvsyears(df_file):
         height=500,
         title='Goals scored on each leagues for every years'
     )
+
+    st.write('Goals vs Years Chart')
     return st.altair_chart(line)
