@@ -6,3 +6,5 @@ def scatter_plot(file,x,y,title):
         y=y,
         tooltip=[x,y,'Player Names']
     ).interactive()
+
+st.write("Lekha was here")
