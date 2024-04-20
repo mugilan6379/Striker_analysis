@@ -3,8 +3,64 @@ import pandas as pd
 import goalsXG 
 import goalsVSyears as gy
 import altair as alt
+from streamlit_extras.let_it_rain import rain
 
 st.header('Striker Analysis')
+def rain(emoji="⚽", font_size=54, falling_speed=5):
+    import streamlit as st
+    import streamlit.components.v1 as components
+
+    # CSS for the falling animation
+    css = f"""
+    <style>
+        @keyframes fall {{
+            0% {{ top: -10%; opacity: 1; }}
+            100% {{ top: 100%; opacity: 0; }}
+        }}
+        .emoji {{
+            position: fixed;
+            font-size: {font_size}px;
+            animation: fall {falling_speed}s linear 1 forwards;
+        }}
+    </style>
+    """
+
+    # JavaScript to create and animate the emojis
+    js = f"""
+    <script>
+        function createEmoji() {{
+            const area = document.createElement('div');
+            area.classList.add('emoji');
+            area.textContent = '{emoji}';
+            document.body.appendChild(area);
+
+            // Randomizing starting positions across the screen width
+            area.style.left = `${{Math.floor(Math.random() * 100)}}vw`;
+            area.style.top = '-10%';  // Start just above the screen
+        }}
+
+        // Create emojis for the first 3 seconds only
+        const interval = setInterval(createEmoji, 300); // Adjust time here to control the frequency of emojis appearing
+
+        // Stop the rain after 3 seconds
+        setTimeout(() => {{
+            clearInterval(interval);
+        }}, 3000);  // Stop after 3 seconds
+    </script>
+    """
+
+    # Combine CSS and JS with an empty HTML body
+    html = f'<html><head>{css}</head><body></body>{js}</html>'
+
+    # Use Streamlit's components to inject the custom HTML
+    components.html(html, height=600)
+
+
+
+def example():
+    if 'initiated' not in st.session_state:
+        rain(emoji="⚽", font_size=54, falling_speed=5)
+        st.session_state['initiated'] = True 
 
 
 def load_data(csv):
