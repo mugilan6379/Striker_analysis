@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @keyframes fall {
+            from {top: -100px;} /* Start above the screen */
+            to {top: 100%;} /* End below the screen */
+        }
+        .football {
+            position: fixed;
+            width: 50px; /* Size of the football image */
+            height: auto;
+            animation: fall 5s infinite;
+            z-index: 9999; /* High z-index to overlay Streamlit content */
+        }
+        #football1 {
+            left: 10%;
+            animation-delay: 0s;
+        }
+        #football2 {
+            left: 50%;
+            animation-delay: 1s;
+        }
+        #football3 {
+            left: 90%;
+            animation-delay: 2s;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://imgs.search.brave.com/P5FP7RjrtWgQHOsRaph5FE1R7Xkl0GR4YrWIqmJ9jMg/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jbGlw/YXJ0cy5jby9jbGlw/YXJ0cy9waW8vYVhH/L3Bpb2FYR0VpRS5w/bmc" class="football" id="football1">
+    <img src="https://imgs.search.brave.com/P5FP7RjrtWgQHOsRaph5FE1R7Xkl0GR4YrWIqmJ9jMg/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jbGlw/YXJ0cy5jby9jbGlw/YXJ0cy9waW8vYVhH/L3Bpb2FYR0VpRS5w/bmc" class="football" id="football2">
+    <img src="https://imgs.search.brave.com/P5FP7RjrtWgQHOsRaph5FE1R7Xkl0GR4YrWIqmJ9jMg/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jbGlw/YXJ0cy5jby9jbGlw/YXJ0cy9waW8vYVhH/L3Bpb2FYR0VpRS5w/bmc" class="football" id="football3">
+</body>
+</html>
